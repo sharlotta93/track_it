@@ -1,4 +1,5 @@
 #[derive(Debug)]
+
 struct User {
     username: String,
     email: String,

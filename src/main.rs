@@ -1,5 +1,7 @@
 mod person;
+mod record;
 
 fn main() {
-    person::run();
+    // person::run();
+    record::run();
 }
