@@ -1,5 +1,5 @@
 mod person;
-mod record;
+use record;
 
 fn main() {
     // person::run();

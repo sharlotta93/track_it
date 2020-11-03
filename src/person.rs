@@ -1,5 +1,6 @@
-#[derive(Debug)]
+mod record;
 
+#[derive(Debug)]
 struct User {
     username: String,
     email: String,
