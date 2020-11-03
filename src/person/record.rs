@@ -13,15 +13,6 @@ fn create_new_record(date: String, time: String, activity: String) -> Record {
     }
 }
 
-// struct CollectionOfRecords {
-//      current_records: vec![]
-// }
-
-// impl CollectionOfRecords {
-//     fn add_record(&self, record: &Record) -> Vector {
-//         self.current_records.push(record)
-//     }
-// }
 
 pub fn run() {
     let date: String = String::from( "12/08");
