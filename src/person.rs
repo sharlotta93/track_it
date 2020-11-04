@@ -1,4 +1,5 @@
 mod record;
+use record::Record;
 
 #[derive(Debug)]
 struct User {
@@ -16,21 +17,19 @@ fn build_user(email: String, username: String) -> User {
 }
 
 // struct CollectionOfRecords {
-//      current_records: vec![&Record]
+//     pub current_records: Vec<Record>
+// }
+
+// fn add_record(record: Record) -> Vec<Record> {
+//     current_records.push(record);
 // }
 
 // impl CollectionOfRecords {
-//     fn add_record(&self, record: &Record) -> Vector {
-//         self.current_records.push(record)
+//     fn start_records() -> Vec<Record> {
+//         let mut current_records :Vec<&Record> = Vec::new();
+//         // println!("{:#?}", current_records);
 //     }
 // }
-
-// cloning for now - but ideally it will be copy not clone, clone can be expensive
-impl User {
-    // fn get_username(&self) -> String {
-    //     self.username.clone()
-    // }
-}
 
 pub fn run() {
     // let email: String = String::from("arekiert@op.pl");
@@ -40,7 +39,6 @@ pub fn run() {
     //
     // println!("user is {:#?}", user1);
 
-    let new_record = record::create_new("date", "time", "activity");
+    let new_record = Record::create_new("date", "time", "activity");
     println!("{:#?}", new_record);
-
 }
