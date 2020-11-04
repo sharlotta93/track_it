@@ -1,27 +1,20 @@
 #[derive(Debug)]
 pub struct Record {
-    date: String,
-    time: String,
-    activity: String,
+    pub date: String,
+    pub time: String,
+    pub activity: String,
 }
 
-pub fn create_new_record(date: String, time: String, activity: String) -> Record {
-    Record {
-        date,
-        time,
-        activity,
+impl Record {
+    pub fn say_hi() {
+        println!("Hello from record")
     }
 }
 
-
-pub fn run() {
-    let date: String = String::from( "12/08");
-    let time: String = String::from("00:30");
-    let activity: String = String::from("Writing");
-
-    let new_record = create_new_record(date, time, activity);
-    println!{"{:#?}", new_record}
-
-    // CollectionOfRecords.add_record(new_record);
-    // println!{"{:#?}", CollectionOfRecords};
+pub fn create_new(date: &str, time: &str, activity: &str) -> Record {
+    Record {
+        date: String::from(date),
+        time: String::from(time),
+        activity: String::from(activity),
+    }
 }

@@ -39,11 +39,8 @@ pub fn run() {
     // let user1 = build_user(email, username);
     //
     // println!("user is {:#?}", user1);
-    let date: String = String::from( "12/08");
-    let time: String = String::from("00:30");
-    let activity: String = String::from("Writing");
 
-    let new_record = super::person::record::create_new_record(date, time, activity);
-    println!{"{:#?}", new_record}
+    let new_record = record::create_new("date", "time", "activity");
+    println!("{:#?}", new_record);
 
 }
