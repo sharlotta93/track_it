@@ -1,11 +1,11 @@
 #[derive(Debug)]
-struct Record {
+pub struct Record {
     date: String,
     time: String,
     activity: String,
 }
 
-fn create_new_record(date: String, time: String, activity: String) -> Record {
+pub fn create_new_record(date: String, time: String, activity: String) -> Record {
     Record {
         date,
         time,
