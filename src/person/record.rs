@@ -13,6 +13,18 @@ impl Record {
             activity: String::from(activity),
         }
     }
+
+    pub fn modify_date(&mut self, new: String) {
+        self.date = new;
+    }
+
+    pub fn modify_time(&mut self, new: String) {
+        self.time = new;
+    }
+
+    pub fn modify_activity(&mut self, new: String) {
+        self.activity = new;
+    }
 }
 
 
