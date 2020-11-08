@@ -1,5 +1,6 @@
 mod record;
 use record::Record;
+use std::vec::Vec;
 
 
 #[derive(Debug)]
@@ -20,9 +21,9 @@ impl User {
         }
     }
 
-    // pub fn add_record(mut self, record: Record) -> User {
-    //     self.user_records.push(record)
-    // }
+    fn add_record(&mut self, record: Record) {
+        self.user_records.push(record);
+    }
 }
 
 
@@ -31,10 +32,14 @@ impl User {
 pub fn run() {
      let email: String = String::from("arekiert@op.pl");
      let username: String = String::from("aekiert");
-     let user1 = User::build_user(email, username);
+     let mut user1 = User::build_user(email, username);
 
      println!("user is {:#?}", user1);
 
-    // let new_record = Record::create_new("date", "time", "activity");
-    // println!("{:#?}", new_record);
+     let record1 = Record::create_new("date", "time", "activity");
+     let record2 = Record::create_new("8/11", "12:00", "running");
+
+     user1.add_record(record1);
+     user1.add_record(record2);
+     println!("user is {:#?}", user1);
 }
