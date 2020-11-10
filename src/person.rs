@@ -25,13 +25,10 @@ impl User {
         self.user_records.push(record);
     }
 
-    // fn change_date(&mut self, mut record: Record, new_date: String) {
-    //         record.modify_date(new_date);
-    // }
+    fn change_date(&mut self, mut record: Record, new_date: String) {
+            record.modify_date(new_date);
+    }
 }
-
-
-
 
 pub fn run() {
      let email: String = String::from("arekiert@op.pl");
@@ -41,7 +38,7 @@ pub fn run() {
      println!("user is {:#?}", user1);
 
      let mut record1 = Record::create_new("date", "time", "activity");
-     let mut record2 = Record::create_new("8/11", "12:00", "running");
+     let record2 = Record::create_new("8/11", "12:00", "running");
      record1.modify_date(String::from("21/11"));
      record1.modify_time(String::from("14:00"));
      record1.modify_activity(String::from("painting"));
@@ -49,6 +46,6 @@ pub fn run() {
      user1.add_record(record1);
      user1.add_record(record2);
 
-     //user1.change_date(record2, String::from("7/11"));
+     // user1.change_date(record2, String::from("7/11"));
      println!("user is {:#?}", user1);
 }
