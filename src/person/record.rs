@@ -1,15 +1,17 @@
+use std::time::Duration;
+
 #[derive(Debug)]
 pub struct Record {
     pub date: String,
-    pub time: String,
+    pub time: Duration,
     pub activity: String,
 }
 
 impl Record {
-    pub fn create_new(date: &str, time: &str, activity: &str) -> Record {
+    pub fn create_new(date: &str, time: u64, activity: &str) -> Record {
         Record {
             date: String::from(date),
-            time: String::from(time),
+            time: Duration::from_secs (time),
             activity: String::from(activity),
         }
     }
@@ -18,7 +20,7 @@ impl Record {
         self.date = new;
     }
 
-    pub fn modify_time(&mut self, new: String) {
+    pub fn modify_time(&mut self, new: Duration) {
         self.time = new;
     }
 

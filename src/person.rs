@@ -1,7 +1,7 @@
 mod record;
 use record::Record;
 use std::vec::Vec;
-
+use std::time::Duration;
 
 
 #[derive(Debug)]
@@ -34,7 +34,7 @@ impl User {
         }
     }
 
-    fn update_time(&mut self, index: usize, new_time: String) {
+    fn update_time(&mut self, index: usize, new_time: Duration) {
         if self.user_records.len() >= index {
             self.user_records[index].modify_time(new_time);
         } else {
@@ -56,13 +56,14 @@ pub fn run() {
      let username: String = String::from("aekiert");
      let mut user1 = User::build_user(email, username);
 
-     let record1 = Record::create_new("date", "time", "activity");
-     let record2 = Record::create_new("8/11", "12:00", "running");
+     let record1 = Record::create_new("date", 120, "activity");
+     let record2 = Record::create_new("8/11", 240, "running");
 
      user1.add_record(record1);
      user1.add_record(record2);
      user1.update_date( 0, String::from("7/11"));
-     user1.update_time( 0, String::from("00:25"));
+     user1.update_time( 0, Duration::from_secs (300));
      user1.update_activity( 0, String::from("coding"));
      println!("user is {:#?}", user1);
+    // to do: implement date/time library Chrono(chrono has minutes, duration only sec ans nsec), display in front end
 }
