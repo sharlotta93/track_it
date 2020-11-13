@@ -26,13 +26,28 @@ impl User {
         self.user_records.push(record);
     }
 
-    fn change_date(&mut self, index: usize, new_date: String) {
+    fn update_date(&mut self, index: usize, new_date: String) {
         if self.user_records.len() >= index {
-            self.user_records[index].date = new_date;
+            self.user_records[index].modify_date(new_date);
         } else {
             println!("Record Not Found!!!");
         }
+    }
 
+    fn update_time(&mut self, index: usize, new_time: String) {
+        if self.user_records.len() >= index {
+            self.user_records[index].modify_time(new_time);
+        } else {
+            println!("Record Not Found!!!");
+        }
+    }
+
+    fn update_activity(&mut self, index: usize, new_activity: String) {
+        if self.user_records.len() >= index {
+            self.user_records[index].modify_activity(new_activity);
+        } else {
+            println!("Record Not Found!!!");
+        }
     }
 }
 
@@ -41,17 +56,13 @@ pub fn run() {
      let username: String = String::from("aekiert");
      let mut user1 = User::build_user(email, username);
 
-     println!("user is {:#?}", user1);
-
-     let mut record1 = Record::create_new("date", "time", "activity");
+     let record1 = Record::create_new("date", "time", "activity");
      let record2 = Record::create_new("8/11", "12:00", "running");
-     record1.modify_date(String::from("21/11"));
-     record1.modify_time(String::from("14:00"));
-     record1.modify_activity(String::from("painting"));
 
      user1.add_record(record1);
      user1.add_record(record2);
-     user1.change_date( 1, String::from("7/11"));
+     user1.update_date( 0, String::from("7/11"));
+     user1.update_time( 0, String::from("00:25"));
+     user1.update_activity( 0, String::from("coding"));
      println!("user is {:#?}", user1);
-     user1.change_date(3, String::from("13/11"));
 }
