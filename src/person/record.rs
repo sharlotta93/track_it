@@ -1,4 +1,5 @@
-use chrono::Duration;
+use chrono::{DateTime, TimeZone, NaiveDateTime, Utc, Duration};
+use chrono::format::strftime;
 
 #[derive(Debug)]
 pub struct Record {
