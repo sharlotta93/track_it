@@ -3,6 +3,7 @@ use record::Record;
 use std::vec::Vec;
 
 
+
 #[derive(Debug)]
 struct User {
     username: String,
@@ -25,8 +26,13 @@ impl User {
         self.user_records.push(record);
     }
 
-    fn change_date(&mut self, mut record: Record, new_date: String) {
-            record.date = new_date;
+    fn change_date(&mut self, index: usize, new_date: String) {
+        if self.user_records.len() >= index {
+            self.user_records[index].date = new_date;
+        } else {
+            println!("Record Not Found!!!");
+        }
+
     }
 }
 
@@ -38,14 +44,14 @@ pub fn run() {
      println!("user is {:#?}", user1);
 
      let mut record1 = Record::create_new("date", "time", "activity");
-     let mut record2 = Record::create_new("8/11", "12:00", "running");
+     let record2 = Record::create_new("8/11", "12:00", "running");
      record1.modify_date(String::from("21/11"));
      record1.modify_time(String::from("14:00"));
      record1.modify_activity(String::from("painting"));
 
      user1.add_record(record1);
      user1.add_record(record2);
-     user1.user_records[1].date = String::from("7/11");
-    // user1.change_date( user1.user_records[0], String::from("7/11"));
+     user1.change_date( 1, String::from("7/11"));
      println!("user is {:#?}", user1);
+     user1.change_date(3, String::from("13/11"));
 }
