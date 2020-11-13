@@ -1,4 +1,4 @@
-use std::time::Duration;
+use chrono::Duration;
 
 #[derive(Debug)]
 pub struct Record {
@@ -8,10 +8,10 @@ pub struct Record {
 }
 
 impl Record {
-    pub fn create_new(date: &str, time: u64, activity: &str) -> Record {
+    pub fn create_new(date: &str, time: i64, activity: &str) -> Record {
         Record {
             date: String::from(date),
-            time: Duration::from_secs (time),
+            time: Duration::minutes(time),
             activity: String::from(activity),
         }
     }
@@ -20,8 +20,8 @@ impl Record {
         self.date = new;
     }
 
-    pub fn modify_time(&mut self, new: Duration) {
-        self.time = new;
+    pub fn modify_time(&mut self, new: i64) {
+        self.time = Duration::minutes(new);
     }
 
     pub fn modify_activity(&mut self, new: String) {
